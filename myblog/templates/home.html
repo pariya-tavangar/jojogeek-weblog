@@ -104,7 +104,11 @@
                     {% endif %}
                     <div class="post-content">
 
-                       <!-- <span class="post-category">subject</span> -->
+                        {% if post.category %}
+                       <span class="post-category">{{post.category.name}}</span>
+                       {% else %}
+                        <span class="post-category">Uncategorized !</span>
+                       {% endif %}
 
                         <h2 class="post-title">{{post.title}}</h2>
                         <p class="post-excerpt">{{ post.content|truncatewords:30 }}</p>

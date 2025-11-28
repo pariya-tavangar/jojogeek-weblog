@@ -89,7 +89,11 @@
             <!-- Post Main Content -->
             <article class="post-main">
                 <div class="post-header">
-                    <span class="post-category">Retro Gaming</span>
+                        {% if post.category %}
+                       <span class="post-category">{{post.category.name}}</span>
+                       {% else %}
+                        <span class="post-category">Uncategorized !</span>
+                       {% endif %}
                     <h1 class="post-title">{{post.title}}</h1>
                     <div class="post-meta">
                         <span><i class="fas fa-user"></i>{{ post.author.username }}</span>

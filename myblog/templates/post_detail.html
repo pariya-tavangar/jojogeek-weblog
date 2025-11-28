@@ -1,0 +1,449 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why SNES Games Still Hold Up Today | CyberCozy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+</head>
+<body data-theme="light" class="crt">
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            ✦ WELCOME TO CYBERCOZY - YOUR 90S GEEK HAVEN ✦ UNDER CONSTRUCTION ✦ NEW POSTS EVERY WEEK ✦ 
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-laptop-code blink"></i>
+                    Jojo<span>Geek</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-keyboard"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-user-astronaut"></i> About</a></li>
+                        <li><a href="#"><i class="fas fa-folder-open"></i> Categories</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li>
+                            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                                <i class="fas fa-moon dark-mode-icon"></i>
+                                <i class="fas fa-sun light-mode-icon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-keyboard"></i> Blog</a></li>
+                <li><a href="#"><i class="fas fa-user-astronaut"></i> About</a></li>
+                <li><a href="#"><i class="fas fa-folder-open"></i> Categories</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark-mode-icon"></i>
+                        <i class="fas fa-sun light-mode-icon"></i>
+                        <span>Toggle Theme</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Overlay for mobile menu -->
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Blog</a></li>
+                <li>Post</li>
+                <li>{{post.title}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="post-content">
+            <!-- Post Main Content -->
+            <article class="post-main">
+                <div class="post-header">
+                    <span class="post-category">Retro Gaming</span>
+                    <h1 class="post-title">{{post.title}}</h1>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user"></i>{{ post.author.username }}</span>
+                        <span><i class="fas fa-calendar"></i> {{ post.create_at }}</span>
+                        <span><i class="fas fa-clock"></i> 8 min read</span>
+                        <span><i class="fas fa-comments"></i> 24 comments</span>
+                    </div>
+                </div>
+                
+                <div class="post-image" style="background-image: url({{post.image.url}});"></div>
+                
+                <div class="post-body">
+                    {{post.content}}
+                   <!-- <p>In an era of photorealistic graphics and complex open worlds, there's something remarkably enduring about the 16-bit classics of the Super Nintendo Entertainment System. Released over three decades ago, these games continue to captivate players young and old. But what is it about these pixelated adventures that makes them stand the test of time?</p>
+                    
+                    <h2>Timeless Art Direction</h2>
+                    
+                    <p>While modern games chase photorealism, SNES titles embraced their technical limitations as creative opportunities. The constrained color palettes and resolution forced developers to focus on strong art direction rather than technical fidelity.</p>
+                    
+                    <blockquote>
+                        "The SNES wasn't about showing what was possible, but about showing what was beautiful within its constraints." - Retro Game Developer
+                    </blockquote>
+                    
+                    <p>Games like <em>Chrono Trigger</em> and <em>Super Mario World</em> created distinctive visual styles that remain appealing today. Their pixel art has a charm that doesn't age in the same way as early 3D graphics, which often look primitive by today's standards.</p>
+                    
+                    <h2>Gameplay Over Graphics</h2>
+                    
+                    <p>SNES developers focused on creating tight, responsive gameplay mechanics that were enjoyable in their own right. Without the ability to rely on cinematic cutscenes or voice acting, the gameplay had to carry the experience.</p>
+                    
+
+
+                     <p>Consider the precision platforming of <em>Super Mario World</em> or the strategic combat of <em>Final Fantasy VI</em>. These mechanics are as engaging today as they were in the 90s because they're built on solid foundations rather than technological novelty.</p>
+                    
+                    <h2>Memorable Soundtracks</h2>
+                    
+                    <p>The SNES sound chip, while limited by today's standards, produced some of the most memorable video game music of all time. Composers worked within constraints to create melodies that have become iconic.</p>
+                    
+                    <p>From the adventurous themes of <em>The Legend of Zelda: A Link to the Past</em> to the atmospheric tracks of <em>Super Metroid</em>, these soundtracks enhance the gaming experience in ways that still resonate with players.</p>
+                    
+                    <h2>Accessible Yet Deep</h2>
+                    
+                    <p>Many SNES games strike a perfect balance between accessibility and depth. They're easy to pick up and play, but offer hidden complexities for those who want to explore further.</p>
+                    
+                    <p><em>Super Mario World</em> introduces its mechanics gradually, while hiding secret exits and levels for dedicated players. <em>Street Fighter II</em> is simple to understand but difficult to master. This design philosophy keeps these games relevant across skill levels.</p>
+                    
+                    <h2>Conclusion</h2>
+                    
+                    <p>The enduring appeal of SNES games isn't just nostalgia—it's a testament to excellent game design that prioritizes player experience over technical spectacle. In many ways, these 16-bit classics represent a golden age of gaming where constraints fostered creativity rather than limiting it.</p>
+                    
+                    <p>So next time you're browsing through modern gaming's latest offerings, consider firing up an SNES classic. You might be surprised at how well these pixelated adventures hold up against their high-definition descendants.</p> -->
+                </div>
+                
+                <div class="post-tags">
+                    {% for tag in post.tags.all %} 
+                    <span class="post-tag">{{tag.name}}</span>
+                    {% if not forloop.last %}, {% endif %}
+                        {% empty %}
+
+                        {% endfor %} 
+                </div>
+                
+                <div class="post-actions">
+                    <a href="#" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Previous Post</a>
+                    <div>
+                        <a href="#" class="btn"><i class="fas fa-share-alt"></i> Share</a>
+                        <a href="#" class="btn"><i class="fas fa-bookmark"></i> Save</a>
+                    </div>
+                    <a href="#" class="btn btn-secondary">Next Post <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+            
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Author Widget -->
+                <div class="sidebar-widget author-widget">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <h3 class="author-name">Alex Retro</h3>
+                    <p class="author-bio">90s kid, retro tech enthusiast, and collector of all things nostalgic. On a mission to keep the spirit of classic gaming alive.</p>
+                    <div class="author-social">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Recent Posts Widget -->
+                <div class="sidebar-widget recent-posts">
+                    <h3 class="widget-title">Recent Posts</h3>
+                    <ul>
+                       {% for post in recent_posts %}
+                        <li>
+                            <a href="{% url 'post_detail' post.title|slugify %}" class="recent-post-title">{{post.title}}</a>
+                            <span class="recent-post-date">{{post.create_at}}</span>
+                        </li>
+                        {% empty %}
+                        <li>no recent posts</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <!-- Categories Widget -->
+                <div class="sidebar-widget categories">
+                    <h3 class="widget-title">Categories</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Retro Gaming <span class="category-count">12</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Tech Nostalgia <span class="category-count">8</span></a>
+                        </li>
+                        <li>
+                            <a href="#">DIY Projects <span class="category-count">5</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Anime & Manga <span class="category-count">7</span></a>
+                        </li>
+                        <li>
+                            <a href="#">Coding & Web <span class="category-count">9</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        
+        <!-- Comments Section -->
+        <section class="comments-section">
+            <h2 class="comments-title">Comments (24)</h2>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <span class="comment-author">RetroGamer92</span>
+                    <span class="comment-date">June 13, 2023</span>
+                </div>
+                <div class="comment-body">
+                    <p>Great article! I completely agree about the timeless art direction. I still play Chrono Trigger at least once a year, and it never gets old. The pixel art in that game is just magical.</p>
+                </div>
+                <a href="#" class="comment-reply">Reply</a>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <span class="comment-author">PixelPusher</span>
+                    <span class="comment-date">June 12, 2023</span>
+                </div>
+                <div class="comment-body">
+                    <p>As a game developer myself, I often look to SNES games for inspiration. The constraints forced developers to be creative in ways we don't see as often today. Thanks for highlighting this!</p>
+                </div>
+                <a href="#" class="comment-reply">Reply</a>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-header">
+                    <span class="comment-author">NostalgiaNerd</span>
+                    <span class="comment-date">June 12, 2023</span>
+                </div>
+                <div class="comment-body">
+                    <p>Don't forget about the amazing RPGs on the system! Final Fantasy VI, Earthbound, Secret of Mana... these games had storytelling that still holds up today. The character development in FFVI is better than most modern games.</p>
+                </div>
+                <a href="#" class="comment-reply">Reply</a>
+            </div>
+            
+            <form class="comment-form">
+                <h3>Leave a Comment</h3>
+                <div class="form-group">
+                    <label for="comment-name">Name</label>
+                    <input type="text" id="comment-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment-email">Email</label>
+                    <input type="email" id="comment-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment-message">Comment</label>
+                    <textarea id="comment-message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Post Comment</button>
+            </form>
+        </section>
+        
+        <!-- Related Posts -->
+        <!-- <section class="related-posts">
+            <h2 class="section-title">Related Posts</h2>
+            <div class="posts-grid">
+                <div class="post-card">
+                    <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="post-content">
+                        <span class="post-category">DIY Projects</span>
+                        <h3 class="post-title">Building a Retro PC for Modern Use</h3>
+                        <p class="post-excerpt">How I turned an old 90s case into a functional modern computer with all the nostalgic vibes but none of the limitations.</p>
+                        <div class="post-meta">
+                            <span>May 15, 2023</span>
+                            <span>12 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1581591527152-f6b5d7647b6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="post-content">
+                        <span class="post-category">Retro Gaming</span>
+                        <h3 class="post-title">Rediscovering Point-and-Click Adventures</h3>
+                        <p class="post-excerpt">A look back at the golden age of adventure games and why their puzzle-solving charm still captivates players today.</p>
+                        <div class="post-meta">
+                            <span>April 30, 2023</span>
+                            <span>7 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="post-content">
+                        <span class="post-category">Tech Nostalgia</span>
+                        <h3 class="post-title">Why We Still Love CRT Monitors</h3>
+                        <p class="post-excerpt">Exploring the unique visual qualities of CRT displays and why retro gamers still seek them out for authentic experiences.</p>
+                        <div class="post-meta">
+                            <span>April 18, 2023</span>
+                            <span>9 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CyberCozy</h3>
+                    <p>A cozy corner of the internet for 90s kids and retro tech enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-tumblr"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Retro Gaming</a></li>
+                        <li><a href="#">Tech Nostalgia</a></li>
+                        <li><a href="#">DIY Projects</a></li>
+                        <li><a href="#">Anime & Manga</a></li>
+                        <li><a href="#">Coding & Web</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Webring</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CyberCozy. Made with <i class="fas fa-heart blink"></i> and too much caffeine.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or respect OS preference
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        // Apply the saved theme
+        body.setAttribute('data-theme', savedTheme);
+        
+        // Toggle theme on button click
+        function toggleTheme() {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            // Only auto-switch if user hasn't manually set a preference
+            if (!localStorage.getItem('theme')) {
+                body.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
+        });
+        
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('overlay');
+        
+        function toggleMobileNav() {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            
+            // Change icon based on menu state
+            const icon = mobileNavToggle.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        mobileNavToggle.addEventListener('click', toggleMobileNav);
+        overlay.addEventListener('click', toggleMobileNav);
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileNav);
+        });
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                toggleMobileNav();
+            }
+        });
+        
+        // Add some 90s sound effects for buttons
+        const buttons = document.querySelectorAll('.btn, .theme-toggle, .mobile-nav-toggle');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real implementation, you could play a sound effect here
+                // For now, we'll just add a visual effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

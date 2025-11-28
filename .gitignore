@@ -1,0 +1,5 @@
+myvenv/
+myblog/db.sqlite3
+myblog/appblog/__pycache__
+myblog/appblog/migrations/
+myblog/__pycache__

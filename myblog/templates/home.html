@@ -73,10 +73,10 @@
 
     <!-- Breadcrumb -->
     <div class="breadcrumb">
-        <div class="container">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li>Blog</li>
+        <div class="container" >
+            <ul >
+                <li style="font-size: 17px;"><a href="#"  >Home</a></li>
+                <li style="font-size: 17px;">Blog</li>
             </ul>
         </div>
     </div>
@@ -191,11 +191,15 @@
                     <a href="?page={{ page_obj.previous_page_number }}" class="page-nav">« Previous</a>
                     {% endif %}
                     <div class="page-numbers">
-                        <a href="#" class="page-number">1</a>
-                        <a href="#" class="page-number active">2</a>
-                        <a href="#" class="page-number">3</a>
-                        <a href="#" class="page-number">4</a>
-                        <a href="#" class="page-number">5</a>
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                            <span>
+                        <a href="?page={{ num }}" class="page-number active">{{num}}</a></span>
+                        {% else %}
+                        <span>
+                        <a href="?page={{ num }}" class="page-number">{{num}}</a></span>
+                            {% endif %}
+                        {% endfor %}
                     </div>
                     {% if page_obj.has_next %}
                     <a href="?page={{ page_obj.next_page_number }}" class="page-nav">Next »</a>

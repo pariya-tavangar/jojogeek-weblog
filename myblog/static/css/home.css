@@ -366,7 +366,7 @@
         .blog-posts {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 10px;
         }
         
         .blog-post {

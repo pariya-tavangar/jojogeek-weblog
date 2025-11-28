@@ -4,7 +4,7 @@ from django.utils.text import slugify
 
 
 def home(request):
-    posts = Post.objects.all().order_by('-create_at')
+    posts = Post.objects.all().order_by('-create_at')[:2]
     recent_posts = Post.objects.all().order_by('-create_at')[:4]
     return render(request,"home.html",{'posts':posts , 'recent_posts':recent_posts})
 

@@ -255,16 +255,9 @@
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Popular Tags</h3>
                     <div class="tags-widget">
-                        <a href="#" class="tag">Nintendo</a>
-                        <a href="#" class="tag">Sega</a>
-                        <a href="#" class="tag">PlayStation</a>
-                        <a href="#" class="tag">Retro Computing</a>
-                        <a href="#" class="tag">Pixel Art</a>
-                        <a href="#" class="tag">16-bit</a>
-                        <a href="#" class="tag">Web 1.0</a>
-                        <a href="#" class="tag">Geocities</a>
-                        <a href="#" class="tag">Anime</a>
-                        <a href="#" class="tag">Manga</a>
+                        {% for tag in top_tags %}
+                        <a href="#" class="tag">{{ tag.name }}</a>
+                        {% endfor %}
                     </div>
                 </div>
             </aside>

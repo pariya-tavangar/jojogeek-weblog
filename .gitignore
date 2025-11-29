@@ -1,7 +1,4 @@
 myvenv/
-__pycache__
+**/__pycache__/
 myblog/db.sqlite3
-myblog/appblog/__pycache__
 myblog/appblog/migrations/
-myblog/__pycache__
-myblog/myblog__pycache__

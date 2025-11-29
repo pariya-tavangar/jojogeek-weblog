@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 </head>
+
 <body data-theme="light" class="crt">
+    <div id="loader-wrapper">
+        <img src="{% static 'images/loader.gif' %}" id="loader-gif">
+    </div>
     <!-- Marquee -->
     <div class="marquee">
         <div class="marquee-content">
@@ -17,6 +21,7 @@
     </div>
 
     <!-- Header -->
+
     <header>
         <div class="container">
             <div class="header-content">
@@ -269,7 +274,7 @@
     <!-- Newsletter -->
     <section class="newsletter">
         <div class="container">
-            <h2>Join the CyberCozy Club</h2>
+            <h2>Looking for something?</h2>
             <p>Get weekly doses of nostalgia delivered straight to your terminal. No spam, just pure 90s vibes.</p>
             <form class="newsletter-form">
                 <input type="email" placeholder="your.email@retro.net" required>
@@ -323,6 +328,31 @@
     </footer>
 
     <script>
+
+
+
+const hasSeenLoader = sessionStorage.getItem("loaderPlayed");
+
+if (!hasSeenLoader) {
+    // show loader normally
+    window.addEventListener("load", function() {
+        const wrapper = document.getElementById("loader-wrapper");
+        sessionStorage.setItem("loaderPlayed", "yes");
+
+        setTimeout(() => {
+            wrapper.style.opacity = "0";
+            setTimeout(() => {
+                wrapper.style.display = "none";
+            }, 300);
+        }, 1800);
+    });
+} else {
+    // user already saw it, hide instantly
+    const wrapper = document.getElementById("loader-wrapper");
+    wrapper.style.display = "none";
+}
+
+
         // Dark Mode Toggle Functionality
         const themeToggle = document.getElementById('themeToggle');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
@@ -404,14 +434,10 @@
                 }, 100);
             });
         });
+
+
+
+
     </script>
 </body>
 </html>
-
-   <!-- {% for post in posts %}
-        <h2><a href="{% url 'post_detail' post.id %}">{{post.title}}</a></h2>
-        <p>{{ post.content|truncatewords:30 }}</p>
-        <hr>
-    {% empty %}
-        <p>no posts yet</p>
-    {% endfor %} -->

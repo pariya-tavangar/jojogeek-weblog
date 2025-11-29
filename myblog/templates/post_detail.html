@@ -61,7 +61,7 @@
                     <button class="theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon dark-mode-icon"></i>
                         <i class="fas fa-sun light-mode-icon"></i>
-                        <span>Toggle Theme</span>
+                        <span>Dark Theme</span>
                     </button>
                 </li>
             </ul>
@@ -89,11 +89,11 @@
             <!-- Post Main Content -->
             <article class="post-main">
                 <div class="post-header">
-                        {% if post.category %}
-                       <span class="post-category">{{post.category.name}}</span>
-                       {% else %}
-                        <span class="post-category">Uncategorized !</span>
-                       {% endif %}
+                    {% if post.category %}
+                    <span class="post-category">{{post.category.name}}</span>
+                    {% else %}
+                    <span class="post-category">Uncategorized !</span>
+                    {% endif %}
                     <h1 class="post-title">{{post.title}}</h1>
                     <div class="post-meta">
                         <span><i class="fas fa-user"></i>{{ post.author.username }}</span>
@@ -107,43 +107,6 @@
                 {% endif %}
                 <div class="post-body">
                     {{post.content}}
-                   <!-- <p>In an era of photorealistic graphics and complex open worlds, there's something remarkably enduring about the 16-bit classics of the Super Nintendo Entertainment System. Released over three decades ago, these games continue to captivate players young and old. But what is it about these pixelated adventures that makes them stand the test of time?</p>
-                    
-                    <h2>Timeless Art Direction</h2>
-                    
-                    <p>While modern games chase photorealism, SNES titles embraced their technical limitations as creative opportunities. The constrained color palettes and resolution forced developers to focus on strong art direction rather than technical fidelity.</p>
-                    
-                    <blockquote>
-                        "The SNES wasn't about showing what was possible, but about showing what was beautiful within its constraints." - Retro Game Developer
-                    </blockquote>
-                    
-                    <p>Games like <em>Chrono Trigger</em> and <em>Super Mario World</em> created distinctive visual styles that remain appealing today. Their pixel art has a charm that doesn't age in the same way as early 3D graphics, which often look primitive by today's standards.</p>
-                    
-                    <h2>Gameplay Over Graphics</h2>
-                    
-                    <p>SNES developers focused on creating tight, responsive gameplay mechanics that were enjoyable in their own right. Without the ability to rely on cinematic cutscenes or voice acting, the gameplay had to carry the experience.</p>
-                    
-
-
-                     <p>Consider the precision platforming of <em>Super Mario World</em> or the strategic combat of <em>Final Fantasy VI</em>. These mechanics are as engaging today as they were in the 90s because they're built on solid foundations rather than technological novelty.</p>
-                    
-                    <h2>Memorable Soundtracks</h2>
-                    
-                    <p>The SNES sound chip, while limited by today's standards, produced some of the most memorable video game music of all time. Composers worked within constraints to create melodies that have become iconic.</p>
-                    
-                    <p>From the adventurous themes of <em>The Legend of Zelda: A Link to the Past</em> to the atmospheric tracks of <em>Super Metroid</em>, these soundtracks enhance the gaming experience in ways that still resonate with players.</p>
-                    
-                    <h2>Accessible Yet Deep</h2>
-                    
-                    <p>Many SNES games strike a perfect balance between accessibility and depth. They're easy to pick up and play, but offer hidden complexities for those who want to explore further.</p>
-                    
-                    <p><em>Super Mario World</em> introduces its mechanics gradually, while hiding secret exits and levels for dedicated players. <em>Street Fighter II</em> is simple to understand but difficult to master. This design philosophy keeps these games relevant across skill levels.</p>
-                    
-                    <h2>Conclusion</h2>
-                    
-                    <p>The enduring appeal of SNES games isn't just nostalgia—it's a testament to excellent game design that prioritizes player experience over technical spectacle. In many ways, these 16-bit classics represent a golden age of gaming where constraints fostered creativity rather than limiting it.</p>
-                    
-                    <p>So next time you're browsing through modern gaming's latest offerings, consider firing up an SNES classic. You might be surprised at how well these pixelated adventures hold up against their high-definition descendants.</p> -->
                 </div>
                 
                 <div class="post-tags">
@@ -151,11 +114,9 @@
                     <span class="post-tag">{{tag.name}}</span>
                     {% if not forloop.last %}, {% endif %}
                         {% empty %}
-
                         {% endfor %} 
                 </div>
                 
-
                 <div class="post-actions">
                     <a href="/" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Home Page</a>
                     <div>
@@ -163,7 +124,6 @@
                         <a href="#" class="btn"><i class="fas fa-bookmark"></i> Save</a>
                     </div>
                 </div>
-                
             </article>
             
             <!-- Sidebar -->
@@ -171,11 +131,11 @@
                 <!-- Author Widget -->
                 <div class="sidebar-widget author-widget">
                     <div class="author-avatar">
-                       <img src="{% static 'images/thecreatorpfp.png' %}" alt="logo"
+                    <img src="{% static 'images/thecreatorpfp.png' %}" alt="logo"
                         style="width: 100px;height: 100px;border-radius: 50%;">
                     </div>
-                    <h3 class="author-name">Alex Retro</h3>
-                    <p class="author-bio">90s kid, retro tech enthusiast, and collector of all things nostalgic. On a mission to keep the spirit of classic gaming alive.</p>
+                    <h3 class="author-name">The Creator</h3>
+                    <p class="author-bio">A She/her developer who loves engaging in whatever tech-related stuff could be found.</p>
                     <div class="author-social">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -188,13 +148,13 @@
                 <div class="sidebar-widget recent-posts">
                     <h3 class="widget-title">Recent Posts</h3>
                     <ul>
-                       {% for post in recent_posts %}
+                        {% for post in recent_posts %}
                         <li>
                             <a href="{% url 'post_detail' post.title|slugify %}" class="recent-post-title">{{post.title}}</a>
                             <span class="recent-post-date">{{post.create_at}}</span>
                         </li>
-                        {% empty %}
-                        <li>no recent posts</li>
+                       {% empty %}
+                       <li>no recent posts</li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -202,14 +162,12 @@
                 <!-- Categories Widget -->
                 <div class="sidebar-widget categories">
                     <h3 class="widget-title">Categories</h3>
-
                     <ul>
                         {% for cat in top_categories %}
                         <li>
                             <a href="/">{{cat.name}}<span class="category-count">{{cat.post_count}}</span></a>
                         </li>
                         {% endfor %}
-                       
                     </ul>
                 </div>
             </aside>
@@ -228,6 +186,17 @@
                     <p>Great article! I completely agree about the timeless art direction. I still play Chrono Trigger at least once a year, and it never gets old. The pixel art in that game is just magical.</p>
                 </div>
                 <a href="#" class="comment-reply">Reply</a>
+                
+                <!-- Admin Reply -->
+                <div class="admin-reply">
+                    <div class="admin-reply-header">
+                        <span class="comment-author">Alex Retro <span class="admin-badge">ADMIN</span></span>
+                        <span class="comment-date">June 13, 2023</span>
+                    </div>
+                    <div class="comment-body">
+                        <p>Thanks for the comment! Chrono Trigger is definitely a masterpiece. I think what makes it so special is how every aspect of the game - art, music, story, and gameplay - work together so perfectly. It's a prime example of the 16-bit era's potential.</p>
+                    </div>
+                </div>
             </div>
             
             <div class="comment">
@@ -239,6 +208,17 @@
                     <p>As a game developer myself, I often look to SNES games for inspiration. The constraints forced developers to be creative in ways we don't see as often today. Thanks for highlighting this!</p>
                 </div>
                 <a href="#" class="comment-reply">Reply</a>
+                
+                <!-- Admin Reply -->
+                <div class="admin-reply">
+                    <div class="admin-reply-header">
+                        <span class="comment-author">Alex Retro <span class="admin-badge">ADMIN</span></span>
+                        <span class="comment-date">June 12, 2023</span>
+                    </div>
+                    <div class="comment-body">
+                        <p>That's a great point! Modern game development has so many tools and possibilities that it's easy to get lost in options. The SNES era forced developers to focus on what truly mattered - creating fun, engaging experiences with limited resources. I'd love to hear about any specific SNES games that have inspired your work!</p>
+                    </div>
+                </div>
             </div>
             
             <div class="comment">

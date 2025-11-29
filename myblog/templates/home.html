@@ -22,7 +22,7 @@
             <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-laptop-code blink"></i>
-                    Jojo<span>Geek</span> Weblog
+                    Jojo<span>Geek</span> weblog
                 </div>
                 
                 <!-- Desktop Navigation -->
@@ -227,26 +227,12 @@
                 <div class="sidebar-widget">
                     <h3 class="widget-title">Categories</h3>
                     <ul class="categories-list">
+                        {% for cat in top_categories %}
                         <li>
-                            <a href="#">Retro Gaming</a>
-                            <span class="category-count">42</span>
+                            <a href="/">{{cat.name}}</a>
+                            <span class="category-count">{{ cat.post_count }}</span>
                         </li>
-                        <li>
-                            <a href="#">Tech Nostalgia</a>
-                            <span class="category-count">35</span>
-                        </li>
-                        <li>
-                            <a href="#">DIY Projects</a>
-                            <span class="category-count">28</span>
-                        </li>
-                        <li>
-                            <a href="#">Anime & Manga</a>
-                            <span class="category-count">31</span>
-                        </li>
-                        <li>
-                            <a href="#">Coding & Web</a>
-                            <span class="category-count">39</span>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 

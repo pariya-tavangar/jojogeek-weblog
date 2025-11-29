@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why SNES Games Still Hold Up Today | CyberCozy</title>
+    <title>✦ {{post.title}} ✦</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
 </head>
@@ -12,7 +12,7 @@
     <!-- Marquee -->
     <div class="marquee">
         <div class="marquee-content">
-            ✦ WELCOME TO CYBERCOZY - YOUR 90S GEEK HAVEN ✦ UNDER CONSTRUCTION ✦ NEW POSTS EVERY WEEK ✦ 
+            ✦ WELCOME TO JOJOGEEK CHAOTIC HOUSE !!!! ✦ STILL UNDER CONSTRUCTION ✦ NEW POSTS EVERY WEEK (I guess) ✦ 
         </div>
     </div>
 
@@ -22,7 +22,7 @@
             <div class="header-content">
                 <div class="logo">
                     <i class="fas fa-laptop-code blink"></i>
-                    Jojo<span>Geek</span>
+                    Jojo<span>Geek</span>weblog
                 </div>
                 
                 <!-- Desktop Navigation -->
@@ -102,9 +102,9 @@
                         <span><i class="fas fa-comments"></i> 24 comments</span>
                     </div>
                 </div>
-                
+                {% if post.image %}
                 <div class="post-image" style="background-image: url({{post.image.url}});"></div>
-                
+                {% endif %}
                 <div class="post-body">
                     {{post.content}}
                    <!-- <p>In an era of photorealistic graphics and complex open worlds, there's something remarkably enduring about the 16-bit classics of the Super Nintendo Entertainment System. Released over three decades ago, these games continue to captivate players young and old. But what is it about these pixelated adventures that makes them stand the test of time?</p>
@@ -201,22 +201,14 @@
                 <!-- Categories Widget -->
                 <div class="sidebar-widget categories">
                     <h3 class="widget-title">Categories</h3>
+
                     <ul>
+                        {% for cat in top_categories %}
                         <li>
-                            <a href="#">Retro Gaming <span class="category-count">12</span></a>
+                            <a href="/">{{cat.name}}<span class="category-count">{{cat.post_count}}</span></a>
                         </li>
-                        <li>
-                            <a href="#">Tech Nostalgia <span class="category-count">8</span></a>
-                        </li>
-                        <li>
-                            <a href="#">DIY Projects <span class="category-count">5</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Anime & Manga <span class="category-count">7</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Coding & Web <span class="category-count">9</span></a>
-                        </li>
+                        {% endfor %}
+                       
                     </ul>
                 </div>
             </aside>

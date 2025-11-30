@@ -314,7 +314,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>CyberCozy</h3>
-                    <p>A cozy corner of the internet for 90s kids and retro tech enthusiasts.</p>
+                    <p>This is a safeplace for the possible awkward looking discussions we have and eager to share with others.</p>
+                    <br>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-tumblr"></i></a>
                         <a href="#"><i class="fab fa-discord"></i></a>
@@ -326,11 +327,9 @@
                 <div class="footer-column">
                     <h3>Categories</h3>
                     <ul>
-                        <li><a href="#">Retro Gaming</a></li>
-                        <li><a href="#">Tech Nostalgia</a></li>
-                        <li><a href="#">DIY Projects</a></li>
-                        <li><a href="#">Anime & Manga</a></li>
-                        <li><a href="#">Coding & Web</a></li>
+                        {% for cat in top_categories %}
+                        <li><a href="#">{{cat.name}}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 

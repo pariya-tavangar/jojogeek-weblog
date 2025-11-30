@@ -177,27 +177,33 @@
         <section class="comments-section">
             <h2 class="comments-title">Comments ({{comments.count}})</h2>
             
-            {% for comment in comments %}
+           
             <div class="comment">
+                {% for comment in comments %}
+                <div class="comment-each">
                 <div class="comment-header">
-                    <span class="comment-author">{{ comment.author }}</span>
-                    <span class="comment-date">{{ comment.create_at }}</span>
+                    <span class="comment-author">{{ comment.name }}</span>
+                    <span class="comment-date">{{ comment.created_at }}</span>
                 </div>
                 <div class="comment-body">
-                        {{ comment.content }}
+                    {{ comment.body }}
                 </div>
                 <a href="#" class="comment-reply" data-id="{{ comment.id }}">Reply</a>
+                <!-- <br>
+                <hr style="border-style: dashed; height: 1px; border: 2;">
+                <br> -->
                 <!-- Admin Reply -->
-                <div class="admin-reply">
+                 <!-- <div class="admin-reply">
                     <div class="admin-reply-header">
                         {% for reply in comment.replies.all %}
-                        <span class="comment-author">{{ reply.author_name }}<span class="admin-badge">ADMIN</span></span>
+                        <span class="comment-author">{{ reply.name }}<span class="admin-badge">ADMIN</span></span>
                         <span class="comment-date">{{ reply.create_at }}</span>
                     </div>
                     <div class="comment-body">
-                        {{ reply.content }}
+                        {{ reply.body }}
                         {% endfor %}
                     </div>
+                </div>  -->
                 </div>
                 {% empty %}
                 <div class="comment-body">
@@ -237,22 +243,19 @@
                     <p>Don't forget about the amazing RPGs on the system! Final Fantasy VI, Earthbound, Secret of Mana... these games had storytelling that still holds up today. The character development in FFVI is better than most modern games.</p>
                 </div>
                 <a href="#" class="comment-reply">Reply</a>
-            </div> -->
+            </div>  -->
             
             <form class="comment-form" method="POST">
                 {% csrf_token %}
                 <h3>Leave a Comment</h3>
-                <div class="form-group">
+                 <div class="form-group">
                     <label for="comment-name">Name</label>
-                    <input type="text" id="comment-name" name="author_name" placeholder="e.g. John Doe" required>
+                    <input name="name" maxlength="100" required="" aria-invalid="true" aria-describedby="id_name_error" type="text" id="id_name" name="author_name" placeholder="e.g. John Doe" required>
                 </div>
-                <div class="form-group">
-                    <label for="comment-email">Email</label>
-                    <input type="email" id="comment-email" name="email" placeholder="e.g. example@gmail.com" required>
-                </div>
+
                 <div class="form-group">
                     <label for="comment-message">Comment</label>
-                    <textarea id="comment-message" name="content" placeholder="e.g. lorem ..." required></textarea>
+                    <textarea id="comment-message" name="body" placeholder="e.g. lorem ..." required></textarea>
                 </div>
                 
                 <button type="submit" class="btn">Post Comment</button>

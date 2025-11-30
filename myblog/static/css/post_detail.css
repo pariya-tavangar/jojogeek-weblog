@@ -655,7 +655,7 @@
         
         .comments-title {
             font-size: 1.8rem;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-family: 'Comic Sans MS', cursive;
             color: var(--dark-brown);
             text-align: center;
@@ -663,6 +663,15 @@
             padding-bottom: 10px;
         }
         
+        .comment-each {
+            padding-bottom: 20px;
+            padding-top: 20px;
+            font-family: 'Comic Sans MS', cursive;
+            color: var(--dark-brown);
+            border-bottom: 2px dashed var(--border-color);
+            /* padding-bottom: 10px; */
+        }
+
         .comment {
             margin-bottom: 30px;
             padding-bottom: 20px;
@@ -683,6 +692,7 @@
         
         .comment-author {
             font-weight: bold;
+            font-size: 22px;
             color: var(--dark-brown);
         }
         
@@ -692,6 +702,7 @@
         }
         
         .comment-body {
+            font-size: 17px;
             margin-bottom: 10px;
         }
         
@@ -703,6 +714,7 @@
         /* Admin Reply Styling */
         .admin-reply {
             margin-top: 20px;
+            margin-bottom: 20px;
             margin-left: 30px;
             padding: 15px;
             background-color: var(--light-pink);

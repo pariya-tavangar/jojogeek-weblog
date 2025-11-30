@@ -175,31 +175,38 @@
         
         <!-- Comments Section -->
         <section class="comments-section">
-            <h2 class="comments-title">Comments (24)</h2>
+            <h2 class="comments-title">Comments ({{comments.count}})</h2>
             
+            {% for comment in comments %}
             <div class="comment">
                 <div class="comment-header">
-                    <span class="comment-author">RetroGamer92</span>
-                    <span class="comment-date">June 13, 2023</span>
+                    <span class="comment-author">{{ comment.author }}</span>
+                    <span class="comment-date">{{ comment.create_at }}</span>
                 </div>
                 <div class="comment-body">
-                    <p>Great article! I completely agree about the timeless art direction. I still play Chrono Trigger at least once a year, and it never gets old. The pixel art in that game is just magical.</p>
+                        {{ comment.content }}
                 </div>
-                <a href="#" class="comment-reply">Reply</a>
-                
+                <a href="#" class="comment-reply" data-id="{{ comment.id }}">Reply</a>
                 <!-- Admin Reply -->
                 <div class="admin-reply">
                     <div class="admin-reply-header">
-                        <span class="comment-author">Alex Retro <span class="admin-badge">ADMIN</span></span>
-                        <span class="comment-date">June 13, 2023</span>
+                        {% for reply in comment.replies.all %}
+                        <span class="comment-author">{{ reply.author_name }}<span class="admin-badge">ADMIN</span></span>
+                        <span class="comment-date">{{ reply.create_at }}</span>
                     </div>
                     <div class="comment-body">
-                        <p>Thanks for the comment! Chrono Trigger is definitely a masterpiece. I think what makes it so special is how every aspect of the game - art, music, story, and gameplay - work together so perfectly. It's a prime example of the 16-bit era's potential.</p>
+                        {{ reply.content }}
+                        {% endfor %}
                     </div>
                 </div>
+                {% empty %}
+                <div class="comment-body">
+                       <p>no comments yet</p> 
+                </div>
+                {% endfor %}
             </div>
             
-            <div class="comment">
+            <!-- <div class="comment">
                 <div class="comment-header">
                     <span class="comment-author">PixelPusher</span>
                     <span class="comment-date">June 12, 2023</span>
@@ -207,10 +214,10 @@
                 <div class="comment-body">
                     <p>As a game developer myself, I often look to SNES games for inspiration. The constraints forced developers to be creative in ways we don't see as often today. Thanks for highlighting this!</p>
                 </div>
-                <a href="#" class="comment-reply">Reply</a>
+                <a href="#" class="comment-reply">Reply</a> -->
                 
                 <!-- Admin Reply -->
-                <div class="admin-reply">
+                <!-- <div class="admin-reply">
                     <div class="admin-reply-header">
                         <span class="comment-author">Alex Retro <span class="admin-badge">ADMIN</span></span>
                         <span class="comment-date">June 12, 2023</span>
@@ -219,9 +226,9 @@
                         <p>That's a great point! Modern game development has so many tools and possibilities that it's easy to get lost in options. The SNES era forced developers to focus on what truly mattered - creating fun, engaging experiences with limited resources. I'd love to hear about any specific SNES games that have inspired your work!</p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
-            <div class="comment">
+            <!-- <div class="comment">
                 <div class="comment-header">
                     <span class="comment-author">NostalgiaNerd</span>
                     <span class="comment-date">June 12, 2023</span>
@@ -230,22 +237,24 @@
                     <p>Don't forget about the amazing RPGs on the system! Final Fantasy VI, Earthbound, Secret of Mana... these games had storytelling that still holds up today. The character development in FFVI is better than most modern games.</p>
                 </div>
                 <a href="#" class="comment-reply">Reply</a>
-            </div>
+            </div> -->
             
-            <form class="comment-form">
+            <form class="comment-form" method="POST">
+                {% csrf_token %}
                 <h3>Leave a Comment</h3>
                 <div class="form-group">
                     <label for="comment-name">Name</label>
-                    <input type="text" id="comment-name" required>
+                    <input type="text" id="comment-name" name="author_name" placeholder="e.g. John Doe" required>
                 </div>
                 <div class="form-group">
                     <label for="comment-email">Email</label>
-                    <input type="email" id="comment-email" required>
+                    <input type="email" id="comment-email" name="email" placeholder="e.g. example@gmail.com" required>
                 </div>
                 <div class="form-group">
                     <label for="comment-message">Comment</label>
-                    <textarea id="comment-message" required></textarea>
+                    <textarea id="comment-message" name="content" placeholder="e.g. lorem ..." required></textarea>
                 </div>
+                
                 <button type="submit" class="btn">Post Comment</button>
             </form>
         </section>

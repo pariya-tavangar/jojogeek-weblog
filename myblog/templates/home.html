@@ -80,7 +80,7 @@
     <div class="breadcrumb">
         <div class="container" >
             <ul >
-                <li style="font-size: 17px;"><a href="#"  >Home</a></li>
+                <li style="font-size: 17px;"><a href="#">Home</a></li>
                 <li style="font-size: 17px;">Blog</li>
             </ul>
         </div>
@@ -275,10 +275,10 @@
     <section class="newsletter">
         <div class="container">
             <h2>Looking for something?</h2>
-            <p>Get weekly doses of nostalgia delivered straight to your terminal. No spam, just pure 90s vibes.</p>
+            <p>Have something on your mind? search it. god knows what you might find here.</p>
             <form class="newsletter-form">
-                <input type="email" placeholder="your.email@retro.net" required>
-                <button type="submit">Subscribe</button>
+                <input type="email" placeholder="type here ..." required>
+                <button type="submit">Search</button>
             </form>
         </div>
     </section>
@@ -288,8 +288,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>CyberCozy</h3>
-                    <p>A cozy corner of the internet for 90s kids and retro tech enthusiasts.</p>
+                    <h3>JojoGeekweblog</h3>
+                    <p>This is a safeplace for the possible awkward looking discussions we have and eager to share with others.</p>
+                    <br>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-tumblr"></i></a>
                         <a href="#"><i class="fab fa-discord"></i></a>
@@ -301,11 +302,9 @@
                 <div class="footer-column">
                     <h3>Categories</h3>
                     <ul>
-                        <li><a href="#">Retro Gaming</a></li>
-                        <li><a href="#">Tech Nostalgia</a></li>
-                        <li><a href="#">DIY Projects</a></li>
-                        <li><a href="#">Anime & Manga</a></li>
-                        <li><a href="#">Coding & Web</a></li>
+                        {% for cat in top_categories %}
+                        <li><a href="#">{{ cat.name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
                 

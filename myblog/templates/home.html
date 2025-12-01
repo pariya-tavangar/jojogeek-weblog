@@ -121,7 +121,7 @@
                             <span><i class="fas fa-user"> </i> {{ post.author.username }}</span>
                             <span><i class="fas fa-calendar"></i> {{post.create_at}}</span>
                             <span><i class="fas fa-clock"></i> 8 min read</span>
-                            <span><i class="fas fa-comments"></i> 24 comments</span>
+                            <span><i class="fas fa-comments"></i> {{post.comments.count}} comments</span>
                         </div>
                         <a href="{% url 'post_detail' post.title|slugify %}" class="read-more" style="margin-top: 15px;">Read More</a>
                     </div>

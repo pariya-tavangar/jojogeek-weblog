@@ -39,6 +39,7 @@ class Comment(models.Model):
     body = models.TextField()
 
     created_at = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
     parent = models.ForeignKey(
         'self',
         null=True,
@@ -48,4 +49,4 @@ class Comment(models.Model):
     )  # so you can reply to comments
 
     def str(self):
-        return f'Comment by {self.name}'
+        return f'Comment by {self.name} - {self.body[:20]}'

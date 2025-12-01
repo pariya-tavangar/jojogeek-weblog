@@ -193,14 +193,16 @@
                 <hr style="border-style: dashed; height: 1px; border: 2;">
                 <br> -->
                 <!-- Admin Reply -->
-                 <!-- <div class="admin-reply">
+                 <!-- {% for reply in comment.replies.all %}
+                    {% if reply.approved %}
+                 <div class="admin-reply">
                     <div class="admin-reply-header">
-                        {% for reply in comment.replies.all %}
                         <span class="comment-author">{{ reply.name }}<span class="admin-badge">ADMIN</span></span>
                         <span class="comment-date">{{ reply.create_at }}</span>
                     </div>
                     <div class="comment-body">
                         {{ reply.body }}
+                            {% endif %}
                         {% endfor %}
                     </div>
                 </div>  -->

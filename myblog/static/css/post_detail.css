@@ -490,6 +490,29 @@
             border: 2px outset var(--soft-green);
         }
         
+
+        .reply-btn{
+            display: inline-block;
+            background-color: var(--soft-green);
+            color: white;
+            padding: 5px 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            border: 2px outset var(--soft-green);
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+        }
+
+
+        .reply-btn:hover{
+            background-color: var(--accent-2);
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #000;
+            border: 2px inset var(--accent-2);
+        }
+
+
         /* Sidebar */
         .sidebar {
             display: flex;
@@ -697,7 +720,7 @@
         }
         
         .comment-date {
-            font-size: 0.8rem;
+            font-size: 15px;
             opacity: 0.7;
         }
         
@@ -779,6 +802,33 @@
             resize: vertical;
         }
         
+
+        .messages{
+            margin:auto;
+            width: 70%;
+            text-align: center;
+            padding: 10px;
+            background-color: var(--accent-1);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            border-radius: 10px;
+
+            animation-name: color;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+            animation-timing-function: ease;
+        }
+
+        @keyframes color {
+        to {
+            background-color:rgb(158, 70, 70);
+            }
+        }
+
+
         /* Related Posts */
         .related-posts {
             margin-bottom: 60px;
@@ -893,6 +943,10 @@
             padding-top: 10px;
         }
         
+        .hidden{
+            display: none;
+        }
+
         /* Footer */
         footer {
             background-color: var(--footer-bg);

@@ -221,7 +221,9 @@
                  <div class="admin-reply">
                     <div class="admin-reply-header">
                         <span class="comment-author">{{ reply.name }}
-                            <!-- <span class="admin-badge"></span> -->
+                            {% if reply.is_admin %}
+                            <span class="admin-badge">ADMIN</span>
+                            {% endif %}
                         </span>
                         <span class="comment-date">{{ reply.created_at }}</span>
                     </div>

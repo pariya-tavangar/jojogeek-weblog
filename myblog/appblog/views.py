@@ -17,7 +17,7 @@ def home(request):
     return render(request,"home.html",{'posts':posts , 'recent_posts':recent_posts,'page_obj':page_obj})
 
 
-#v3
+#v4
 def post_detail(request, title):
     # Find the matching post by slugified title
     posts = Post.objects.all()
@@ -47,18 +47,21 @@ def post_detail(request, title):
             comment = form.save(commit=False)
             comment.post = post
 
-            # Check if it's a reply
-            parent_id = request.POST.get('parent_id')
-            if parent_id:
-                comment.parent_id = parent_id
+        # Identify admin by name (or any rule you want)
+            if comment.name.lower() == "admin":  
+                comment.is_admin = True
 
-            # Still unapproved until you approve it
-            comment.approved = False
-            comment.save()
+        # Check if it's a reply
+        parent_id = request.POST.get('parent_id')
+        if parent_id:
+            comment.parent_id = parent_id
 
-            messages.success(request,"Thank you for the comment ♥ It will be shown after admin approval !")
+        # Still unapproved until you approve it
+        comment.approved = False
+        comment.save()
 
-            return redirect('post_detail', title=title)
+        messages.success(request, "Thank you for the comment ♥️ It will be shown after admin approval !")
+        return redirect('post_detail', title=title)
     else:
         form = CommentForm()
 
@@ -68,6 +71,59 @@ def post_detail(request, title):
         'comments': comments,
         'form': form,
     })
+
+
+#v3
+# def post_detail(request, title):
+    # Find the matching post by slugified title
+    # posts = Post.objects.all()
+    # post = None
+    # for p in posts:
+    #     if slugify(p.title) == title:
+    #         post = p
+    #         break
+
+    # If no post found, show 404
+    # if not post:
+    #     return render(request, "404.html", status=404)
+
+    # Recent posts for sidebar
+    # recent_posts = Post.objects.all()[:4]
+
+    # Only show approved top-level comments
+    # comments = post.comments.filter(
+    #     approved=True,
+    #     parent__isnull=True
+    # ).order_by('created_at')
+
+    # Handle new comment or reply
+    # if request.method == "POST":
+    #     form = CommentForm(request.POST)
+    #     if form.is_valid():
+    #         comment = form.save(commit=False)
+    #         comment.post = post
+
+            # Check if it's a reply
+            # parent_id = request.POST.get('parent_id')
+            # if parent_id:
+            #     comment.parent_id = parent_id
+
+            # Still unapproved until you approve it
+            # comment.approved = False
+            # comment.save()
+
+    #         messages.success(request,"Thank you for the comment ♥ It will be shown after admin approval !")
+
+    #         return redirect('post_detail', title=title)
+    # else:
+    #     form = CommentForm()
+
+    # return render(request, "post_detail.html", {
+    #     'post': post,
+    #     'recent_posts': recent_posts,
+    #     'comments': comments,
+    #     'form': form,
+    # })
 
 #v2
 # def post_detail(request, title):

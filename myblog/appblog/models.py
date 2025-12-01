@@ -40,6 +40,7 @@ class Comment(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
+    is_admin = models.BooleanField(default=False)
     parent = models.ForeignKey(
         'self',
         null=True,

@@ -3,6 +3,7 @@ from .models import Post,Category,Comment
 from django.utils.text import slugify
 from django.core.paginator import Paginator
 from .forms import CommentForm
+from django.contrib import messages
 
 
 def home(request):
@@ -54,6 +55,8 @@ def post_detail(request, title):
             # Still unapproved until you approve it
             comment.approved = False
             comment.save()
+
+            messages.success(request,"Thank you for the comment ♥ It will be shown after admin approval !")
 
             return redirect('post_detail', title=title)
     else:

@@ -4,6 +4,19 @@ from django.utils.text import slugify
 from django.core.paginator import Paginator
 from .forms import CommentForm
 from django.contrib import messages
+from django.db.models import Sum
+from django.db.models.functions import Length
+
+
+def humanize_number(n):
+    if n < 1000:
+        return str(n)
+    elif n < 1000000:
+        return f"{n//1000}k"
+    elif n < 1000000000:
+        return f"{n//1000000}M"
+    else:
+        return f"{n//1000000000}B"
 
 
 def home(request):
@@ -180,3 +193,16 @@ def category_detail(request, category_id):
     category = get_object_or_404(Category, id=category_id)
     posts = category.posts.all()
     return render(request, "category_detail.html", {"category": category, "posts": posts})
+
+
+def about (request):
+
+    post_count = Post.objects.count()
+
+    char_count = Post.objects.aggregate(total = Sum(Length("content")))["total"] or 0
+    word_count = char_count // 5
+    word_count = humanize_number(word_count)
+
+    comment_count = Comment.objects.count()
+    comment_count = humanize_number(comment_count)
+    return render(request, "about.html", {'comment_count':comment_count,"post_count": post_count, "word_count":word_count,})

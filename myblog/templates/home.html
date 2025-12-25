@@ -90,7 +90,7 @@
     <section class="page-header">
         <div class="container">
             <h1 class="page-title">Bonjour Mes Amis!</h1>
-            <p class="page-subtitle">This is a safeplace for the possible awkward looking discussions we have and eager to share with others.</p>
+            <p class="page-subtitle">This is a safeplace for the possible awkward-looking discussions we have and eager to share with each other.</p>
         </div>
     </section>
 
@@ -121,7 +121,7 @@
                             <span><i class="fas fa-user"> </i> {{ post.author.username }}</span>
                             <span><i class="fas fa-calendar"></i> {{post.create_at}}</span>
                             <span><i class="fas fa-clock"></i> 8 min read</span>
-                            <span><i class="fas fa-comments"></i> 24 comments</span>
+                            <span><i class="fas fa-comments"></i> {{post.comments.count}} comments</span>
                         </div>
                         <a href="{% url 'post_detail' post.title|slugify %}" class="read-more" style="margin-top: 15px;">Read More</a>
                     </div>
@@ -227,7 +227,7 @@
                     </div>
                     <h3 class="about-name">The Creator</h3>
                     <p class="about-bio">A She/her developer who loves engaging in whatever tech-related stuff could be found.</p>
-                    <a href="#" class="read-more">About Creator</a>
+                    <a href="{% url 'about' %}" class="read-more">About Creator</a>
                 </div>
                 
                 <!-- Categories Widget -->

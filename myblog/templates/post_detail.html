@@ -187,7 +187,7 @@
 
 
         <section class="comments-section">
-            <h2 class="comments-title">Comments ({{comments.count}})</h2>
+            <h2 class="comments-title">Comments ({{post.comments.count}})</h2>
             <div class="comment">
                 {% for comment in comments %}
                 <div class="comment-each">
@@ -221,7 +221,9 @@
                  <div class="admin-reply">
                     <div class="admin-reply-header">
                         <span class="comment-author">{{ reply.name }}
-                            <!-- <span class="admin-badge"></span> -->
+                            {% if reply.is_admin %}
+                            <span class="admin-badge">ADMIN</span>
+                            {% endif %}
                         </span>
                         <span class="comment-date">{{ reply.created_at }}</span>
                     </div>

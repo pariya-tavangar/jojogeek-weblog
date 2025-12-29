@@ -28,9 +28,9 @@
                 <!-- Desktop Navigation -->
                 <nav class="desktop-nav">
                     <ul>
-                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
                         <li><a href="#"><i class="fas fa-keyboard"></i> Blog</a></li>
-                        <li><a href="#"><i class="fas fa-user-astronaut"></i> About</a></li>
+                        <li><a href="{% url 'about' %}"><i class="fas fa-user-astronaut"></i> About</a></li>
                         <li><a href="#"><i class="fas fa-folder-open"></i> Categories</a></li>
                         <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
                         <li>
@@ -52,9 +52,9 @@
         <!-- Mobile Navigation -->
         <nav class="mobile-nav" id="mobileNav">
             <ul>
-                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="#"><i class="fas fa-keyboard"></i> Blog</a></li>
-                <li><a href="#"><i class="fas fa-user-astronaut"></i> About</a></li>
+                <li><a href="{% url 'about' %}"><i class="fas fa-user-astronaut"></i> About</a></li>
                 <li><a href="#"><i class="fas fa-folder-open"></i> Categories</a></li>
                 <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
                 <li>
@@ -75,7 +75,7 @@
     <div class="breadcrumb">
         <div class="container">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
                 <li>About</li>
             </ul>
         </div>
@@ -208,7 +208,7 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fa-brands fa-telegram"></i>
+                        <i class="fa-brands fa-telegram" style="color:#2faceb;"></i>
                     </div>
                     <h3 class="member-name">Telegram</h3>
                     <div class="member-role">Diary channel</div>
@@ -219,18 +219,18 @@
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fa-brands fa-github"></i>
+                        <i class="fa-brands fa-github" style="color:black;"></i>
                     </div>
                     <h3 class="member-name">Github</h3>
                     <div class="member-role">Tech Based Stuff</div>
                     <!-- <p class="member-bio">Software developer by day, retro computer restorer by night. Specializes in breathing new life into old hardware.</p> -->
                     <div class="member-social">
-                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="#"><i class="fa-solid fa-arrow-up-right-from-square" ></i></a>
                     </div>
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fa-solid fa-globe"></i>
+                        <i class="fa-solid fa-globe" style="color:#4284ff;"></i>
                     </div>
                     <h3 class="member-name">Website</h3>
                     <div class="member-role">Cv & projects</div>
@@ -241,7 +241,7 @@
                 </div>
                 <div class="team-member">
                     <div class="member-avatar">
-                        <i class="fa-brands fa-tumblr"></i>
+                        <i class="fa-brands fa-tumblr" style="color: #001833;"></i>
                     </div>
                     <h3 class="member-name">Tumblr</h3>
                     <div class="member-role">Amusing timekiller</div>

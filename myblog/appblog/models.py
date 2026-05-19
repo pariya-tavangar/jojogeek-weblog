@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ckeditor.fields import RichTextField
+
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
 
     def str(self):
         return self.name
+
 
 
 class Tag(models.Model):
@@ -18,8 +19,7 @@ class Tag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    content = RichTextField()
-    # content = models.TextField()
+    content = models.TextField()
     create_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='post_images/', blank=True,null=True)
     tags = models.ManyToManyField(Tag, related_name='posts', blank=True)

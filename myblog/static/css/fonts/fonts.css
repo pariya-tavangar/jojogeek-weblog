@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Harlow';
+    src: url('HARLOWSI.TTF') format('truetype');
+    font-weight: Bold;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Comic';
+    src: url('ComicNeue-Angular-Bold.ttf') format('truetype');
+    font-weight: Bold;
+    font-display: swap;
+}

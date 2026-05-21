@@ -419,7 +419,7 @@
         
         .post-category {
             display: inline-block;
-            background-color: var(--accent-2);
+            background-color: #4ecdc5af;;
             color: var(--dark-brown);
             padding: 5px 10px;
             font-size: 0.8rem;

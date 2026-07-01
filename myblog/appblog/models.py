@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
+from django.utils.html import strip_tags
+import math
 
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -26,6 +28,19 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE,related_name='posts')
     # category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     category = models.ForeignKey(Category,on_delete=models.CASCADE,related_name="posts")
+    read_time = models.PositiveIntegerField(default=0, editable=False)
+
+    def save(self, *args, **kwargs):
+        if self.content:
+            plain_text = strip_tags(self.content)
+            words = plain_text.split()
+            word_count = len(words)
+
+            self.read_time = max(1, math.ceil(word_count / 300))
+        else:
+            self.read_time = 1 
+        super().save(*args, **kwargs)
+
 
     def __str__(self):
         return self.title

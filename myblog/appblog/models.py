@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
 from django.utils.html import strip_tags
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 import math
 
 class Category(models.Model):
@@ -66,3 +68,56 @@ class Comment(models.Model):
 
     def str(self):
         return f'Comment by {self.name} - {self.body[:20]}'
+    
+
+# ===== NEW PROFILE MODELS =====
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    bio = models.TextField(max_length=500, blank=True, null=True)
+    image = models.ImageField(upload_to='profile_images/', default='default_profile.jpg', blank=True)
+    banner = models.ImageField(upload_to='banner_images/', blank=True, null=True)
+    website = models.URLField(blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.user.username}'s Profile"
+
+
+class SavedPost(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='saved_posts')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='saved_by')
+    saved_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('user', 'post')  # Prevent duplicate saves
+
+    def __str__(self):
+        return f"{self.user.username} saved {self.post.title}"
+
+
+class SharedPost(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='shared_posts')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='shared_by')
+    shared_at = models.DateTimeField(auto_now_add=True)
+    comment = models.TextField(blank=True, null=True)
+
+    class Meta:
+        unique_together = ('user', 'post')
+
+    def __str__(self):
+        return f"{self.user.username} shared {self.post.title}"
+
+
+# ===== SIGNALS TO AUTO-CREATE PROFILE =====
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()

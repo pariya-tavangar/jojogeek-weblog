@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile_user.username }}'s Profile - My Blog</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        .banner-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .profile-info {
+            margin-top: -50px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .avatar-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-top: -60px;
+        }
+        .post-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .nav-tabs .nav-link.active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">My Blog</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create_post' %}">New Post</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                
+                <!-- Search Form -->
+                <form class="d-flex me-3" action="{% url 'search_posts' %}" method="get">
+                    <input class="form-control me-2" type="search" name="query" placeholder="Search..." aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                {% if user.profile and user.profile.image %}
+                                    <img src="{{ user.profile.image.url }}" class="rounded-circle" style="width: 30px; height: 30px; object-fit: cover;">
+                                {% else %}
+                                    <i class="fas fa-user-circle"></i>
+                                {% endif %}
+                                {{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{% url 'profile' username=user.username %}">
+                                    <i class="fas fa-user"></i> Profile
+                                </a></li>
+                                <li><a class="dropdown-item" href="{% url 'profile_edit' %}">
+                                    <i class="fas fa-edit"></i> Edit Profile
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-4">
+        <!-- Messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <div class="profile-header">
+            <div class="banner-container">
+                {% if profile_user.profile and profile_user.profile.banner %}
+                    <img src="{{ profile_user.profile.banner.url }}" style="width: 100%; height: 100%; object-fit: cover;">
+                {% else %}
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                {% endif %}
+            </div>
+            
+            <div class="profile-info">
+                <div class="text-center">
+                    {% if profile_user.profile and profile_user.profile.image %}
+                        <img src="{{ profile_user.profile.image.url }}" class="avatar-img">
+                    {% else %}
+                        <img src="https://ui-avatars.com/api/?name={{ profile_user.username }}&size=120&background=667eea&color=fff" class="avatar-img">
+                    {% endif %}
+                    
+                    <h2 class="mt-2">{{ profile_user.username }}</h2>
+                    
+                    {% if profile_user.profile and profile_user.profile.location %}
+                        <p><i class="fas fa-map-marker-alt"></i> {{ profile_user.profile.location }}</p>
+                    {% endif %}
+                    
+                    {% if profile_user.profile and profile_user.profile.bio %}
+                        <p>{{ profile_user.profile.bio }}</p>
+                    {% endif %}
+                    
+                    {% if profile_user.profile and profile_user.profile.website %}
+                        <p><a href="{{ profile_user.profile.website }}" target="_blank"><i class="fas fa-globe"></i> Website</a></p>
+                    {% endif %}
+                    
+                    <div class="mt-3">
+                        {% if is_own_profile %}
+                            <a href="{% url 'profile_edit' %}" class="btn btn-primary">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </a>
+                            <a href="{% url 'create_post' %}" class="btn btn-success">
+                                <i class="fas fa-plus"></i> Create Post
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-content mt-4">
+            <ul class="nav nav-tabs" id="profileTabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-bs-toggle="tab" href="#posts">
+                        <i class="fas fa-pen"></i> Posts ({{ posts.count }})
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#saved">
+                        <i class="fas fa-bookmark"></i> Saved ({{ saved_posts.count }})
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-toggle="tab" href="#shared">
+                        <i class="fas fa-share"></i> Shared ({{ shared_posts.count }})
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content mt-3">
+                <div class="tab-pane fade show active" id="posts">
+                    {% for post in posts %}
+                        <div class="post-card">
+                            <h3><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h3>
+                            <p>{{ post.content|striptags|truncatewords:30 }}</p>
+                            <small><i class="far fa-calendar-alt"></i> {{ post.create_at|date:"M d, Y" }}</small>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary save-btn" data-post-id="{{ post.id }}">
+                                    <i class="fas fa-bookmark"></i> 
+                                    {% if post.id in saved_post_ids %}
+                                        Unsave
+                                    {% else %}
+                                        Save
+                                    {% endif %}
+                                </button>
+                                <button class="btn btn-sm btn-outline-success share-btn" data-bs-toggle="modal" data-bs-target="#shareModal{{ post.id }}">
+                                    <i class="fas fa-share"></i> Share
+                                </button>
+                                {% if is_own_profile %}
+                                    <button class="btn btn-sm btn-outline-danger delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal{{ post.id }}">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <!-- Share Modal -->
+                        <div class="modal fade" id="shareModal{{ post.id }}" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="POST" action="{% url 'share_post' post.id %}">
+                                        {% csrf_token %}
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Share: {{ post.title }}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <textarea name="comment" class="form-control" placeholder="Add a comment (optional)" rows="3"></textarea>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Share</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Delete Modal -->
+                        <div class="modal fade" id="deleteModal{{ post.id }}" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="POST" action="{% url 'delete_post' post.id %}">
+                                        {% csrf_token %}
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-danger">Delete Post</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Are you sure you want to delete "{{ post.title }}"?</p>
+                                            <p class="text-danger">This action cannot be undone!</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> No posts yet.
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="tab-pane fade" id="saved">
+                    {% for saved in saved_posts %}
+                        <div class="post-card">
+                            <h3><a href="{% url 'post_detail' saved.post.id %}">{{ saved.post.title }}</a></h3>
+                            <p>{{ saved.post.content|striptags|truncatewords:30 }}</p>
+                            <small><i class="far fa-calendar-alt"></i> Saved on {{ saved.saved_at|date:"M d, Y" }}</small>
+                        </div>
+                    {% empty %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> No saved posts.
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <div class="tab-pane fade" id="shared">
+                    {% for shared in shared_posts %}
+                        <div class="post-card">
+                            <h3><a href="{% url 'post_detail' shared.post.id %}">{{ shared.post.title }}</a></h3>
+                            <p>{{ shared.post.content|striptags|truncatewords:30 }}</p>
+                            {% if shared.comment %}
+                                <div class="alert alert-secondary">
+                                    <strong>Comment:</strong> {{ shared.comment }}
+                                </div>
+                            {% endif %}
+                            <small><i class="far fa-calendar-alt"></i> Shared on {{ shared.shared_at|date:"M d, Y" }}</small>
+                        </div>
+                    {% empty %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> No shared posts.
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white mt-5 py-4">
+        <div class="container text-center">
+            <p>&copy; {% now "Y" %} My Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const saveBtns = document.querySelectorAll('.save-btn');
+        saveBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const postId = this.dataset.postId;
+                const btn = this;
+                fetch(`/post/${postId}/save/`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'saved') {
+                        btn.innerHTML = '<i class="fas fa-bookmark"></i> Unsave';
+                        btn.classList.remove('btn-outline-primary');
+                        btn.classList.add('btn-primary');
+                    } else {
+                        btn.innerHTML = '<i class="fas fa-bookmark"></i> Save';
+                        btn.classList.remove('btn-primary');
+                        btn.classList.add('btn-outline-primary');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCozy | 90s Geek Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="home.css">
+</head>
+<body data-theme="light" class="crt">
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            ✦ WELCOME TO CYBERCOZY - YOUR 90S GEEK HAVEN ✦ UNDER CONSTRUCTION ✦ NEW POSTS EVERY WEEK ✦ 
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-laptop-code blink"></i>
+                    Cyber<span>Cozy</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-keyboard"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-user-astronaut"></i> About</a></li>
+                        <li><a href="#"><i class="fas fa-folder-open"></i> Categories</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li>
+                            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                                <i class="fas fa-moon dark-mode-icon"></i>
+                                <i class="fas fa-sun light-mode-icon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-keyboard"></i> Blog</a></li>
+                <li><a href="#"><i class="fas fa-user-astronaut"></i> About</a></li>
+                <li><a href="#"><i class="fas fa-folder-open"></i> Categories</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark-mode-icon"></i>
+                        <i class="fas fa-sun light-mode-icon"></i>
+                        <span>Toggle Theme</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Overlay for mobile menu -->
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to CyberCozy</h1>
+            <p>Your digital campfire for 90s nostalgia, geek culture, and cozy vibes</p>
+            <a href="#" class="btn">Enter the Matrix</a>
+        </div>
+    </section>
+
+    <!-- Featured Posts -->
+    <section class="featured-posts">
+        <div class="container">
+            <h2 class="section-title">Latest from the Terminal</h2>
+            <div class="posts-grid">
+                <div class="post-card">
+                    <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="post-content">
+                        <span class="post-category">Retro Gaming</span>
+                        <h3 class="post-title">Why SNES Games Still Hold Up Today</h3>
+                        <p class="post-excerpt">Exploring the timeless design of 16-bit classics and why they're still more fun than most modern games.</p>
+                        <div class="post-meta">
+                            <span>June 12, 2023</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="post-content">
+                        <span class="post-category">Tech Nostalgia</span>
+                        <h3 class="post-title">The Aesthetic of 90s Computer Labs</h3>
+                        <p class="post-excerpt">Remember the beige boxes, the clacky keyboards, and the hum of dial-up modems? A tribute to the computing aesthetic of our youth.</p>
+                        <div class="post-meta">
+                            <span>May 28, 2023</span>
+                            <span>6 min read</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="post-card">
+                    <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="post-content">
+                        <span class="post-category">DIY Projects</span>
+                        <h3 class="post-title">Building a Retro PC for Modern Use</h3>
+                        <p class="post-excerpt">How I turned an old 90s case into a functional modern computer with all the nostalgic vibes but none of the limitations.</p>
+                        <div class="post-meta">
+                            <span>May 15, 2023</span>
+                            <span>12 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image"></div>
+                <div class="about-text">
+                    <h2>About CyberCozy</h2>
+                    <p>Welcome to my digital time capsule! I'm Alex, a 90s kid who never quite left the era of dial-up internet, Tamagotchis, and the original PlayStation.</p>
+                    <p>This blog is my love letter to the technology, games, and culture that shaped a generation. From retro tech reviews to nostalgic deep dives, if it's geeky and cozy, you'll find it here.</p>
+                    <a href="#" class="btn">Read My Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Retro Music Player -->
+    <section class="retro-player">
+        <div class="container">
+            <div class="player-header">
+                <div class="player-icon">
+                    <i class="fas fa-compact-disc blink"></i>
+                </div>
+                <h2 class="player-title">CyberCozy Radio</h2>
+            </div>
+            
+            <div class="track-info">
+                <div class="track-title">Mega Man 2 - Dr. Wily Stage 1</div>
+                <div class="track-artist">Original Soundtrack</div>
+            </div>
+            
+            <div class="player-controls">
+                <div class="player-btn" id="prevBtn">
+                    <i class="fas fa-step-backward"></i>
+                </div>
+                <div class="player-btn" id="playBtn">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div class="player-btn" id="nextBtn">
+                    <i class="fas fa-step-forward"></i>
+                </div>
+                
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <div class="time-display" id="timeDisplay">1:30 / 4:15</div>
+            </div>
+            
+            <ul class="playlist" id="playlist">
+                <li class="active">Mega Man 2 - Dr. Wily Stage 1</li>
+                <li>Chrono Trigger - Corridors of Time</li>
+                <li>Streets of Rage 2 - Go Straight</li>
+                <li>Sonic the Hedgehog - Green Hill Zone</li>
+                <li>Final Fantasy VI - Terra's Theme</li>
+                <li>Donkey Kong Country - Aquatic Ambiance</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- NEW: Quote of the Day -->
+    <section class="quote-of-day">
+        <div class="container">
+            <div class="quote-icon">
+                <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="quote-text" id="quoteText">
+                "The Internet? Is that thing still around?"
+            </div>
+            <div class="quote-author" id="quoteAuthor">- Homer Simpson, 1996</div>
+            <div class="quote-source" id="quoteSource">The Simpsons, Season 7</div>
+        </div>
+    </section>
+
+    <!-- Categories Showcase -->
+    <section class="categories-showcase">
+        <div class="container">
+            <h2 class="section-title">Explore Categories</h2>
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="category-title">Retro Gaming</h3>
+                    <p class="category-description">Relive the golden age of gaming with reviews and retrospectives</p>
+                    <span class="category-count">42 Posts</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="category-title">Tech Nostalgia</h3>
+                    <p class="category-description">Remember the beige boxes and dial-up modems of the 90s</p>
+                    <span class="category-count">35 Posts</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="category-title">DIY Projects</h3>
+                    <p class="category-description">Hands-on guides for retro tech restoration and modern projects</p>
+                    <span class="category-count">28 Posts</span>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <h3 class="category-title">Anime & Manga</h3>
+                    <p class="category-description">Celebrating the anime and manga that defined 90s Western fandom</p>
+                    <span class="category-count">31 Posts</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Tags -->
+    <section class="popular-tags">
+        <div class="container">
+            <h2 class="section-title">Popular Tags</h2>
+            <div class="tags-container">
+                <a href="#" class="tag tag-large">Nintendo</a>
+                <a href="#" class="tag">Sega</a>
+                <a href="#" class="tag tag-large">PlayStation</a>
+                <a href="#" class="tag">DOS</a>
+                <a href="#" class="tag">Windows 95</a>
+                <a href="#" class="tag tag-large">Retro Computing</a>
+                <a href="#" class="tag">Pixel Art</a>
+                <a href="#" class="tag">16-bit</a>
+                <a href="#" class="tag">Arcade</a>
+                <a href="#" class="tag tag-large">Web 1.0</a>
+                <a href="#" class="tag">Geocities</a>
+                <a href="#" class="tag">HTML</a>
+                <a href="#" class="tag">CSS</a>
+                <a href="#" class="tag">JavaScript</a>
+                <a href="#" class="tag">Anime</a>
+                <a href="#" class="tag">Manga</a>
+                <a href="#" class="tag">Cartoons</a>
+                <a href="#" class="tag">Toys</a>
+                <a href="#" class="tag">Collecting</a>
+                <a href="#" class="tag">Restoration</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join the CyberCozy Club</h2>
+            <p>Get weekly doses of nostalgia delivered straight to your terminal. No spam, just pure 90s vibes.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="your.email@retro.net" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CyberCozy</h3>
+                    <p>A cozy corner of the internet for 90s kids and retro tech enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-tumblr"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Retro Gaming</a></li>
+                        <li><a href="#">Tech Nostalgia</a></li>
+                        <li><a href="#">DIY Projects</a></li>
+                        <li><a href="#">Anime & Manga</a></li>
+                        <li><a href="#">Coding & Web</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Webring</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CyberCozy. Made with <i class="fas fa-heart blink"></i> and too much caffeine.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or respect OS preference
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        // Apply the saved theme
+        body.setAttribute('data-theme', savedTheme);
+        
+        // Toggle theme on button click
+        function toggleTheme() {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            // Only auto-switch if user hasn't manually set a preference
+            if (!localStorage.getItem('theme')) {
+                body.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
+        });
+        
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('overlay');
+        
+        function toggleMobileNav() {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            
+            // Change icon based on menu state
+            const icon = mobileNavToggle.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        mobileNavToggle.addEventListener('click', toggleMobileNav);
+        overlay.addEventListener('click', toggleMobileNav);
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileNav);
+        });
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                toggleMobileNav();
+            }
+        });
+        
+        // Add some 90s sound effects for buttons
+        const buttons = document.querySelectorAll('.btn, .theme-toggle, .mobile-nav-toggle');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real implementation, you could play a sound effect here
+                // For now, we'll just add a visual effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 100);
+            });
+        });
+
+        // NEW: Music Player Functionality
+        const playBtn = document.getElementById('playBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const timeDisplay = document.getElementById('timeDisplay');
+        const playlistItems = document.querySelectorAll('#playlist li');
+        
+        let isPlaying = false;
+        let currentTrack = 0;
+        
+        // Toggle play/pause
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                playBtn.classList.add('active');
+                // In a real implementation, you would play audio here
+                simulatePlayback();
+            } else {
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                playBtn.classList.remove('active');
+                // In a real implementation, you would pause audio here
+            }
+        });
+        
+        // Next track
+        nextBtn.addEventListener('click', () => {
+            currentTrack = (currentTrack + 1) % playlistItems.length;
+            updatePlaylist();
+            resetProgress();
+        });
+        
+        // Previous track
+        prevBtn.addEventListener('click', () => {
+            currentTrack = (currentTrack - 1 + playlistItems.length) % playlistItems.length;
+            updatePlaylist();
+            resetProgress();
+        });
+        
+        // Update playlist highlighting
+        function updatePlaylist() {
+            playlistItems.forEach((item, index) => {
+                if (index === currentTrack) {
+                    item.classList.add('active');
+                    // Update track info
+                    document.querySelector('.track-title').textContent = item.textContent;
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+        
+        // Reset progress bar
+        function resetProgress() {
+            progressBar.style.width = '0%';
+            timeDisplay.textContent = '0:00 / 4:15';
+        }
+        
+        // Simulate playback progress
+        function simulatePlayback() {
+            if (!isPlaying) return;
+            
+            let progress = 0;
+            const interval = setInterval(() => {
+                if (!isPlaying) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                progress += 0.5;
+                progressBar.style.width = `${progress}%`;
+                
+                // Update time display
+                const currentTime = Math.floor(255 * progress / 100);
+                const minutes = Math.floor(currentTime / 60);
+                const seconds = currentTime % 60;
+                timeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')} / 4:15`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    // Move to next track when current finishes
+                    setTimeout(() => {
+                        currentTrack = (currentTrack + 1) % playlistItems.length;
+                        updatePlaylist();
+                        resetProgress();
+                        simulatePlayback();
+                    }, 1000);
+                }
+            }, 100);
+        }
+        
+        // Click on playlist item to select track
+        playlistItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentTrack = index;
+                updatePlaylist();
+                resetProgress();
+                if (isPlaying) {
+                    simulatePlayback();
+                }
+            });
+        });
+        
+        // Progress bar seeking
+        progressContainer.addEventListener('click', (e) => {
+            if (!isPlaying) return;
+            
+            const rect = progressContainer.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            progressBar.style.width = `${percent * 100}%`;
+            
+            // Update time display based on seek position
+            const currentTime = Math.floor(255 * percent);
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = currentTime % 60;
+            timeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')} / 4:15`;
+        });
+
+        // NEW: Quote of the Day Functionality
+        const quotes = [
+            {
+                text: "The Internet? Is that thing still around?",
+                author: "Homer Simpson",
+                source: "The Simpsons, Season 7"
+            },
+            {
+                text: "With great power comes great responsibility.",
+                author: "Uncle Ben",
+                source: "Spider-Man"
+            },
+            {
+                text: "It's dangerous to go alone! Take this.",
+                author: "Old Man",
+                source: "The Legend of Zelda"
+            },
+            {
+                text: "The truth is out there.",
+                author: "Fox Mulder",
+                source: "The X-Files"
+            },
+            {
+                text: "I'll be back.",
+                author: "The Terminator",
+                source: "Terminator 2: Judgment Day"
+            },
+            {
+                text: "You've got mail!",
+                author: "AOL",
+                source: "1990s Internet Culture"
+            }
+        ];
+        
+        const quoteText = document.getElementById('quoteText');
+        const quoteAuthor = document.getElementById('quoteAuthor');
+        const quoteSource = document.getElementById('quoteSource');
+        
+        // Set a random quote on page load
+        function setRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const quote = quotes[randomIndex];
+            
+            quoteText.textContent = `"${quote.text}"`;
+            quoteAuthor.textContent = `- ${quote.author}`;
+            quoteSource.textContent = quote.source;
+        }
+        
+        // Set initial quote
+        setRandomQuote();
+        
+        // Change quote every 24 hours (or on page refresh for demo)
+        // In a real implementation, you might want to use localStorage
+        // to track the current day and only change once per day
+    </script>
+</body>
+</html>

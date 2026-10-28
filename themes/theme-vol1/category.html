@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | CyberCozy - 90s Geek Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="category.css">
+</head>
+<body data-theme="light" class="crt">
+    <!-- Marquee -->
+    <div class="marquee">
+        <div class="marquee-content">
+            ✦ WELCOME TO CYBERCOZY - YOUR 90S GEEK HAVEN ✦ UNDER CONSTRUCTION ✦ NEW POSTS EVERY WEEK ✦ 
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-laptop-code blink"></i>
+                    Cyber<span>Cozy</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-keyboard"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-user-astronaut"></i> About</a></li>
+                        <li><a href="#"><i class="fas fa-folder-open"></i> Categories</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                        <li>
+                            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                                <i class="fas fa-moon dark-mode-icon"></i>
+                                <i class="fas fa-sun light-mode-icon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-keyboard"></i> Blog</a></li>
+                <li><a href="#"><i class="fas fa-user-astronaut"></i> About</a></li>
+                <li><a href="#"><i class="fas fa-folder-open"></i> Categories</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="mobileThemeToggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark-mode-icon"></i>
+                        <i class="fas fa-sun light-mode-icon"></i>
+                        <span>Toggle Theme</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Overlay for mobile menu -->
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>Categories</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Blog Categories</h1>
+            <p class="page-subtitle">Explore all our content organized by topic. From retro gaming to web development, find exactly what you're looking for.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Categories Grid -->
+        <section class="categories-grid">
+            <!-- Retro Gaming Category -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2 class="category-title">Retro Gaming</h2>
+                        <div class="category-count">42 posts</div>
+                    </div>
+                </div>
+                <div class="category-description">
+                    <p>Relive the golden age of gaming with reviews, retrospectives, and deep dives into classic games from the 80s and 90s.</p>
+                </div>
+                <div class="category-posts">
+                    <h3 class="category-posts-title">Recent Posts</h3>
+                    <ul class="post-list">
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Why SNES Games Still Hold Up Today</span>
+                                <span class="post-date">Jun 12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">The Legacy of Sega Genesis</span>
+                                <span class="post-date">May 28</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Rediscovering Point-and-Click Adventures</span>
+                                <span class="post-date">Apr 30</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all">View All Retro Gaming Posts →</a>
+                </div>
+            </div>
+            
+            <!-- Tech Nostalgia Category -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2 class="category-title">Tech Nostalgia</h2>
+                        <div class="category-count">35 posts</div>
+                    </div>
+                </div>
+                <div class="category-description">
+                    <p>Remember the beige boxes, floppy disks, and dial-up modems? Explore the technology that defined the 90s computing experience.</p>
+                </div>
+                <div class="category-posts">
+                    <h3 class="category-posts-title">Recent Posts</h3>
+                    <ul class="post-list">
+                        <li>
+                            <a href="#">
+                                <span class="post-title">The Aesthetic of 90s Computer Labs</span>
+                                <span class="post-date">May 15</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Why We Still Love CRT Monitors</span>
+                                <span class="post-date">Apr 18</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">The Sound of Dial-Up: A Eulogy</span>
+                                <span class="post-date">Mar 22</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all">View All Tech Nostalgia Posts →</a>
+                </div>
+            </div>
+            
+            <!-- DIY Projects Category -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2 class="category-title">DIY Projects</h2>
+                        <div class="category-count">28 posts</div>
+                    </div>
+                </div>
+                <div class="category-description">
+                    <p>Hands-on guides for retro tech restoration, modern projects with vintage aesthetics, and creative ways to blend old and new.</p>
+                </div>
+                <div class="category-posts">
+                    <h3 class="category-posts-title">Recent Posts</h3>
+                    <ul class="post-list">
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Building a Retro PC for Modern Use</span>
+                                <span class="post-date">Jun 5</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Restoring a Classic Mechanical Keyboard</span>
+                                <span class="post-date">May 10</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Raspberry Pi Retro Gaming Console</span>
+                                <span class="post-date">Apr 3</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all">View All DIY Projects →</a>
+                </div>
+            </div>
+            
+            <!-- Anime & Manga Category -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-dragon"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2 class="category-title">Anime & Manga</h2>
+                        <div class="category-count">31 posts</div>
+                    </div>
+                </div>
+                <div class="category-description">
+                    <p>Celebrating the anime and manga that defined 90s Western fandom. From Sailor Moon to Dragon Ball Z and everything in between.</p>
+                </div>
+                <div class="category-posts">
+                    <h3 class="category-posts-title">Recent Posts</h3>
+                    <ul class="post-list">
+                        <li>
+                            <a href="#">
+                                <span class="post-title">The Toonami Revolution</span>
+                                <span class="post-date">May 22</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Rediscovering 90s Shojo Manga</span>
+                                <span class="post-date">Apr 14</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">The Evolution of Gundam Models</span>
+                                <span class="post-date">Mar 8</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all">View All Anime & Manga Posts →</a>
+                </div>
+            </div>
+            
+            <!-- Coding & Web Category -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2 class="category-title">Coding & Web</h2>
+                        <div class="category-count">39 posts</div>
+                    </div>
+                </div>
+                <div class="category-description">
+                    <p>Web development with a nostalgic twist. Exploring early web design, modern retro aesthetics, and coding projects inspired by the past.</p>
+                </div>
+                <div class="category-posts">
+                    <h3 class="category-posts-title">Recent Posts</h3>
+                    <ul class="post-list">
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Building a Geocities-Style Website in 2023</span>
+                                <span class="post-date">Jun 8</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">The Charm of Early Web Design</span>
+                                <span class="post-date">May 17</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">CSS Tricks for Retro Aesthetics</span>
+                                <span class="post-date">Apr 25</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all">View All Coding & Web Posts →</a>
+                </div>
+            </div>
+            
+            <!-- Pop Culture Category -->
+            <div class="category-card">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="category-info">
+                        <h2 class="category-title">Pop Culture</h2>
+                        <div class="category-count">26 posts</div>
+                    </div>
+                </div>
+                <div class="category-description">
+                    <p>Remembering the TV shows, movies, toys, and trends that made the 90s such a distinctive and memorable decade.</p>
+                </div>
+                <div class="category-posts">
+                    <h3 class="category-posts-title">Recent Posts</h3>
+                    <ul class="post-list">
+                        <li>
+                            <a href="#">
+                                <span class="post-title">The Tamagotchi Craze: Then and Now</span>
+                                <span class="post-date">May 30</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">Saturday Morning Cartoons: A Retrospective</span>
+                                <span class="post-date">Apr 12</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="post-title">The Power Rangers Phenomenon</span>
+                                <span class="post-date">Mar 5</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="view-all">View All Pop Culture Posts →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Tags -->
+        <section class="popular-tags">
+            <div class="container">
+                <h2 class="section-title">Popular Tags</h2>
+                <div class="tags-container">
+                    <a href="#" class="tag tag-large">Nintendo</a>
+                    <a href="#" class="tag">Sega</a>
+                    <a href="#" class="tag tag-large">PlayStation</a>
+                    <a href="#" class="tag">DOS</a>
+                    <a href="#" class="tag">Windows 95</a>
+                    <a href="#" class="tag tag-large">Retro Computing</a>
+                    <a href="#" class="tag">Pixel Art</a>
+                    <a href="#" class="tag">16-bit</a>
+                    <a href="#" class="tag">Arcade</a>
+                    <a href="#" class="tag tag-large">Web 1.0</a>
+                    <a href="#" class="tag">Geocities</a>
+                    <a href="#" class="tag">HTML</a>
+                    <a href="#" class="tag">CSS</a>
+                    <a href="#" class="tag">JavaScript</a>
+                    <a href="#" class="tag">Anime</a>
+                    <a href="#" class="tag">Manga</a>
+                    <a href="#" class="tag">Cartoons</a>
+                    <a href="#" class="tag">Toys</a>
+                    <a href="#" class="tag">Collecting</a>
+                    <a href="#" class="tag">Restoration</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Archive Section -->
+        <section class="archive">
+            <h2 class="section-title">Blog Archive</h2>
+            <div class="archive-content">
+                <div class="archive-year">
+                    <h3 class="year-title">2023</h3>
+                    <div class="month-posts">
+                        <div class="month-title">June</div>
+                        <ul>
+                            <li><a href="#">Why SNES Games Still Hold Up Today</a></li>
+                            <li><a href="#">Building a Geocities-Style Website in 2023</a></li>
+                            <li><a href="#">Building a Retro PC for Modern Use</a></li>
+                        </ul>
+                    </div>
+                    <div class="month-posts">
+                        <div class="month-title">May</div>
+                        <ul>
+                            <li><a href="#">The Toonami Revolution</a></li>
+                            <li><a href="#">The Tamagotchi Craze: Then and Now</a></li>
+                            <li><a href="#">The Aesthetic of 90s Computer Labs</a></li>
+                            <li><a href="#">The Legacy of Sega Genesis</a></li>
+                        </ul>
+                    </div>
+                    <div class="month-posts">
+                        <div class="month-title">April</div>
+                        <ul>
+                            <li><a href="#">Rediscovering 90s Shojo Manga</a></li>
+                            <li><a href="#">Why We Still Love CRT Monitors</a></li>
+                            <li><a href="#">Saturday Morning Cartoons: A Retrospective</a></li>
+                            <li><a href="#">Rediscovering Point-and-Click Adventures</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="archive-year">
+                    <h3 class="year-title">2022</h3>
+                    <div class="month-posts">
+                        <div class="month-title">December</div>
+                        <ul>
+                            <li><a href="#">Retro Gaming Gift Guide 2022</a></li>
+                            <li><a href="#">The Best 90s Christmas Episodes</a></li>
+                        </ul>
+                    </div>
+                    <div class="month-posts">
+                        <div class="month-title">November</div>
+                        <ul>
+                            <li><a href="#">Building a Raspberry Pi Retro Console</a></li>
+                            <li><a href="#">The History of Flash Games</a></li>
+                        </ul>
+                    </div>
+                    <div class="month-posts">
+                        <div class="month-title">October</div>
+                        <ul>
+                            <li><a href="#">Spooky 90s Video Games</a></li>
+                            <li><a href="#">The Evolution of Halloween Costumes</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="archive-year">
+                    <h3 class="year-title">2021</h3>
+                    <div class="month-posts">
+                        <div class="month-title">Highlights</div>
+                        <ul>
+                            <li><a href="#">The Complete Guide to Retro Game Emulation</a></li>
+                            <li><a href="#">Remembering Blockbuster Video</a></li>
+                            <li><a href="#">90s Internet Culture: A Retrospective</a></li>
+                            <li><a href="#">The Best 16-bit Soundtracks</a></li>
+                            <li><a href="#">View all 2021 posts →</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Never Miss a Post</h2>
+                <p>Subscribe to our newsletter for weekly doses of nostalgia delivered straight to your terminal.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="your.email@retro.net" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CyberCozy</h3>
+                    <p>A cozy corner of the internet for 90s kids and retro tech enthusiasts.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-tumblr"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Retro Gaming</a></li>
+                        <li><a href="#">Tech Nostalgia</a></li>
+                        <li><a href="#">DIY Projects</a></li>
+                        <li><a href="#">Anime & Manga</a></li>
+                        <li><a href="#">Coding & Web</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Webring</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 CyberCozy. Made with <i class="fas fa-heart blink"></i> and too much caffeine.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or respect OS preference
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        // Apply the saved theme
+        body.setAttribute('data-theme', savedTheme);
+        
+        // Toggle theme on button click
+        function toggleTheme() {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        
+        themeToggle.addEventListener('click', toggleTheme);
+        mobileThemeToggle.addEventListener('click', toggleTheme);
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            // Only auto-switch if user hasn't manually set a preference
+            if (!localStorage.getItem('theme')) {
+                body.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            }
+        });
+        
+        // Mobile Navigation Toggle
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const overlay = document.getElementById('overlay');
+        
+        function toggleMobileNav() {
+            mobileNav.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+            
+            // Change icon based on menu state
+            const icon = mobileNavToggle.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+        
+        mobileNavToggle.addEventListener('click', toggleMobileNav);
+        overlay.addEventListener('click', toggleMobileNav);
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', toggleMobileNav);
+        });
+        
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                toggleMobileNav();
+            }
+        });
+        
+        // Add some 90s sound effects for buttons
+        const buttons = document.querySelectorAll('.btn, .theme-toggle, .mobile-nav-toggle');
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real implementation, you could play a sound effect here
+                // For now, we'll just add a visual effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
